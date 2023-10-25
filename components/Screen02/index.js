@@ -15,7 +15,12 @@ export default function Screen02({navigation, route}) {
                 />
                 <Text style={{fontWeight: "500", fontSize: 16, marginLeft: 12, flexGrow: 1, paddingVertical: 15}}>{item}</Text>
                 <Pressable
-                    onPress={()=>navigation.navigate()}
+                    onPress={()=>navigation.navigate("Screen03", {
+                        action: "update",
+                        email: route?.params?.email,
+                        data: item,
+                        index: index
+                    })}
                 >
                     <Image
                         source={require("../../assets/edit.png")}
@@ -34,6 +39,10 @@ export default function Screen02({navigation, route}) {
         if (route?.params?.action == "add"){
            
             setTodoList([...todoList, route.params.todo]);
+        } else if (route?.params?.action == "update"){
+            let newArr = [...todoList];
+            newArr[route?.params?.index] =  route?.params?.todo;
+            setTodoList(newArr);
         }
    }, [route?.params?.todo])
   return (

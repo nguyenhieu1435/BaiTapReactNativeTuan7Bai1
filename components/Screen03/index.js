@@ -1,5 +1,5 @@
 import { View, Text, StatusBar, ScrollView, Pressable, Image, TextInput } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { SafeAreaView } from 'react-native'
 
 export default function Screen03({navigation, route}) {
@@ -13,8 +13,22 @@ export default function Screen03({navigation, route}) {
                 email: route?.params?.email
             })
             setTextInput("");
+        } else {
+            navigation.navigate("Screen02", {
+                action: "update",
+                todo: textInput,
+                email: route?.params?.email,
+                index: route?.params?.index
+            })
+            setTextInput("");
         }
     }
+
+    useEffect(()=>{
+        if (route.params?.action == "update"){
+            setTextInput(route.params?.data)
+        }
+    }, [route.params?.action, route.params?.data])
   return (
     <View style={{flex: 1, paddingHorizontal: 30}}>
         <StatusBar/>
@@ -49,7 +63,7 @@ export default function Screen03({navigation, route}) {
                     </View>
 
                 <View style={{alignItems: "center", marginTop: 40}}>
-                    <Text style={{fontSize: 35, fontWeight: "700"}}>ADD YOUR JOB</Text>
+                    <Text style={{fontSize: 35, fontWeight: "700"}}>{route.params?.action == "add" ? "ADD YOUR JOB" : "EDIT YOUR JOB"}</Text>
 
                 </View>
                 <View style={{flexDirection: "row", alignItems: "center", borderWidth: 1, borderRadius: 4, marginTop:30}}>
