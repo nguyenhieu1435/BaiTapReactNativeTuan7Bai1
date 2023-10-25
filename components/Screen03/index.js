@@ -6,11 +6,13 @@ export default function Screen03({navigation, route}) {
     const [textInput, setTextInput] = useState("");
     const handleClickFinish = ()=>{
         if (route.params?.action == "add"){
+            
             navigation.navigate("Screen02", {
                 action: "add",
                 todo: textInput,
                 email: route?.params?.email
             })
+            setTextInput("");
         }
     }
   return (

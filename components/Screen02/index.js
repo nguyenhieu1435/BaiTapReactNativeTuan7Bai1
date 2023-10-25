@@ -27,9 +27,12 @@ export default function Screen02({navigation, route}) {
             </View>
         )
     }
+    const handleSetSeach = (text)=>{
+        setSearch(text);
+    }
    useEffect(()=>{
         if (route?.params?.action == "add"){
-            console.log( route.params.todo)
+           
             setTodoList([...todoList, route.params.todo]);
         }
    }, [route?.params?.todo])
@@ -76,13 +79,13 @@ export default function Screen02({navigation, route}) {
                         placeholderTextColor="#ccc"
                         style={{flexGrow: 1, paddingVertical: 10}}
                         value={search}
-                        onChangeText={setSearch}
+                        onChangeText={(text)=>handleSetSeach(text)}
                     />
                 </View>
                 <View>
                     <FlatList
                         style={{marginTop: 50}}
-                        data={todoList}
+                        data={search != "" ? todoList.filter(item => item.includes(search)) : todoList }
                         keyExtractor={(item, index)=> index +""}
                         renderItem={({item, index})=> renderItemTodo(item, index)}
                     />
