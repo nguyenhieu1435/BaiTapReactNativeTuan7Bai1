@@ -1,5 +1,5 @@
 import { View, Text, StatusBar, SafeAreaView, Image, TextInput, FlatList, Pressable, ScrollView } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 export default function Screen02({navigation, route}) {
     const [search, setSearch] = useState("");
@@ -27,6 +27,12 @@ export default function Screen02({navigation, route}) {
             </View>
         )
     }
+   useEffect(()=>{
+        if (route?.params?.action == "add"){
+            console.log( route.params.todo)
+            setTodoList([...todoList, route.params.todo]);
+        }
+   }, [route?.params?.todo])
   return (
     <View style={{flex: 1}}>
         <StatusBar/>
@@ -84,6 +90,7 @@ export default function Screen02({navigation, route}) {
                 <Pressable style={{alignItems: "center"}}
                     onPress={()=> navigation.navigate("Screen03", {
                         action: "add",
+                        email: route?.params?.email
                     })}
                 >
                     <Image

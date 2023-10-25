@@ -1,8 +1,18 @@
 import { View, Text, StatusBar, ScrollView, Pressable, Image, TextInput } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native'
 
 export default function Screen03({navigation, route}) {
+    const [textInput, setTextInput] = useState("");
+    const handleClickFinish = ()=>{
+        if (route.params?.action == "add"){
+            navigation.navigate("Screen02", {
+                action: "add",
+                todo: textInput,
+                email: route?.params?.email
+            })
+        }
+    }
   return (
     <View style={{flex: 1, paddingHorizontal: 30}}>
         <StatusBar/>
@@ -49,12 +59,19 @@ export default function Screen03({navigation, route}) {
                     <TextInput
                         placeholder='input your job'
                         style={{flexGrow: 1, fontSize: 16}}
+                        value={textInput}
+                        onChangeText={setTextInput}
                     />
                 </View>
                 <View style={{width: "100%", alignItems: "center"}}>
                     <Pressable style={{borderRadius: 12, width: "60%", flexDirection: "row", alignItems :"center", justifyContent: "center"
-                    , marginTop: 50, backgroundColor: "#00BDD5"}}>
-                        <Text style={{fontSize: 17, color: "#fff", paddingVertical: 10, marginRight: 5}}>Finish</Text>
+                    , marginTop: 50, backgroundColor: "#00BDD5"}}
+                        onPress={()=>handleClickFinish()}
+                    
+                    >
+                        <Text style={{fontSize: 17, color: "#fff", paddingVertical: 10, marginRight: 5}}
+                        
+                        >Finish</Text>
                         <Image
                             source={require("../../assets/next.png")}
                             resizeMode='contain'
