@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 
 export default function Screen02({navigation, route}) {
     const [search, setSearch] = useState("");
-    const [todoList, setTodoList] = useState(["To check email"]);
+    const [todoList, setTodoList] = useState([]);
     const renderItemTodo = (item, index)=>{
         return (
             <View style={{backgroundColor: "#ccc", borderRadius: 25, flexDirection:"row", marginBottom: 25
