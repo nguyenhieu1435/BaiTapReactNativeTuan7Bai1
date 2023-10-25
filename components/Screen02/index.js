@@ -36,7 +36,9 @@ export default function Screen02({navigation, route}) {
             >
                 <View>
                     <View style={{flexDirection: "row", justifyContent: "space-between", paddingVertical: 15}}>
-                        <Pressable>
+                        <Pressable
+                            onPress={()=> navigation.navigate("Screen01")}
+                        >
                             <Image
                                 source={require("../../assets/back.jpg")}
                                 resizeMode='contain'
@@ -79,7 +81,11 @@ export default function Screen02({navigation, route}) {
                         renderItem={({item, index})=> renderItemTodo(item, index)}
                     />
                 </View>
-                <Pressable style={{alignItems: "center"}}>
+                <Pressable style={{alignItems: "center"}}
+                    onPress={()=> navigation.navigate("Screen03", {
+                        action: "add",
+                    })}
+                >
                     <Image
                         source={require("../../assets/add-more.png")}
                         resizeMode='contain'
