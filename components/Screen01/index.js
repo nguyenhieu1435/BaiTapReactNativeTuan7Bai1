@@ -38,7 +38,7 @@ export default function Screen01({navigation}) {
                 </View>
                 <Pressable style={{flexDirection: "row", alignItems: "center", backgroundColor: "#00BDD5"
                 , paddingVertical: 10, paddingHorizontal: 30, borderRadius: 12}}
-                    onPress={()=> navigation.navigate()}
+                    onPress={()=> navigation.navigate("Screen02", {email: email})}
                 >
                     <Text style={{color: "#fff", fontSize: 18, marginRight: 6}}>GET STARTED</Text>
                     <Image
