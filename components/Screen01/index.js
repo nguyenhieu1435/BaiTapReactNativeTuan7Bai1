@@ -3,9 +3,29 @@ import { Pressable } from 'react-native'
 import { View, Text, StatusBar, SafeAreaView, Image, TextInput } from 'react-native'
 import { Feather } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
+import { ActivityIndicator } from 'react-native';
 
 export default function Screen01({navigation}) {
-    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [isLoadingData, setIsLoadingData] = useState(false);
+    async function handleLogin(){
+        if(username.trim() === "" || password.trim() === ""){
+            alert("Please fill all fields")
+        }else{
+            setIsLoadingData(true);
+            const res = await fetch(`https://n38s2n-3000.csb.app/account_tuan7?username=${username}&password=${password}`);
+            const data = await res.json();
+            setIsLoadingData(false);
+            if (!data || data.length === 0){
+                alert("Username or password is incorrect");
+            } else {
+                navigation.navigate("Screen02", {username: username});
+                setUsername("");
+                setPassword("");
+            }
+        }
+    }
   return (
     <View style={{flex: 1, backgroundColor : "#f9fafb"}}>
         <StatusBar/>
@@ -14,7 +34,9 @@ export default function Screen01({navigation}) {
             <View style={{flex: 1, alignItems: "center"}}>
                 <View style={{flex: 4, justifyContent: "space-between", width: "100%"}}>
                     <View style={{width: "100%", alignItems: "flex-end", marginTop: 30}}>
-                        <Pressable style={{width: "30%"}}>
+                        <Pressable style={{width: "30%"}}
+                            onPress={()=> navigation.navigate("SignUp")}
+                        >
                             <Text style={{textAlign: "center", fontSize: 18, color: "#fff", fontWeight: "700"
                             , backgroundColor: "#00BDD5", paddingVertical: 10}}>Sign In</Text>
                         </Pressable>
@@ -35,8 +57,8 @@ export default function Screen01({navigation}) {
                             placeholder='Enter your username'
                             style={{paddingVertical: 10, flexGrow: 1, fontSize: 16}}
                             placeholderTextColor={"#888"}
-                            value={email}
-                            onChangeText={setEmail}
+                            value={username}
+                            onChangeText={setUsername}
                         />
                     </View>
                     <View style={{flexDirection: "row", width: "90%", borderWidth: 1, marginTop: 30
@@ -47,16 +69,25 @@ export default function Screen01({navigation}) {
                             secureTextEntry={true}
                             style={{paddingVertical: 10, flexGrow: 1, fontSize: 16}}
                             placeholderTextColor={"#888"}
-                            value={email}
-                            onChangeText={setEmail}
+                            value={password}
+                            onChangeText={setPassword}
                         />
                     </View>
-                    <Pressable style={{flexDirection: "row", alignItems: "center", backgroundColor: "#00BDD5", marginTop: 25
-                    , paddingVertical: 10, paddingHorizontal: 30, borderRadius: 12}}
-                        onPress={()=> navigation.navigate("Screen02", {email: email})}
+                    <Pressable style={{flexDirection: "row", alignItems: "center"}}
+                        onPress={handleLogin}
                     >
-                        <Text style={{color: "#fff", fontSize: 18, marginRight: 6}}>Sign In</Text>
-                        <Ionicons name="arrow-forward" size={24} color="white" />
+                        {
+                            isLoadingData
+                            ?
+                            <ActivityIndicator style={{marginTop: 30,}} size="large"/>
+                            :
+                            <>
+                             <Text style={{color: "#fff", fontSize: 18, marginRight: 6, backgroundColor: "#00BDD5", marginTop: 25
+                        , paddingVertical: 10, paddingHorizontal: 30,  borderRadius: 12}}>Sign In</Text>
+                            <Ionicons name="arrow-forward" size={24} color="white" />
+                            </>
+                        }
+                       
                     </Pressable>
                 </View>
             </View>

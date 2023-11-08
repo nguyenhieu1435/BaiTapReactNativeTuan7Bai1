@@ -17,7 +17,7 @@ export default function Screen02({navigation, route}) {
                 <Pressable
                     onPress={()=>navigation.navigate("Screen03", {
                         action: "update",
-                        email: route?.params?.email,
+                        username: route?.params?.username,
                         data: item,
                         index: index
                     })}
@@ -72,7 +72,7 @@ export default function Screen02({navigation, route}) {
                                 resizeMode='contain'
                             />
                             <View>
-                                <Text style={{textAlign: "center", fontWeight: "700", }}>Hi {route.params?.email}</Text>
+                                <Text style={{textAlign: "center", fontWeight: "700", }}>Hi {route.params?.username}</Text>
                                 <Text style={{marginLeft: 4, fontWeight: "500", color: "#666"}}>Have a greate day a head</Text>
                             </View>
 
@@ -104,7 +104,7 @@ export default function Screen02({navigation, route}) {
                 <Pressable style={{alignItems: "center"}}
                     onPress={()=> navigation.navigate("Screen03", {
                         action: "add",
-                        email: route?.params?.email
+                        username: route?.params?.username
                     })}
                 >
                     <Image

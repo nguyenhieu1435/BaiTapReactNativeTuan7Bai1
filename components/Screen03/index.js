@@ -13,14 +13,14 @@ export default function Screen03({navigation, route}) {
             navigation.navigate("Screen02", {
                 action: "add",
                 todo: textInput,
-                email: route?.params?.email
+                username: route?.params?.username
             })
             setTextInput("");
         } else {
             navigation.navigate("Screen02", {
                 action: "update",
                 todo: textInput,
-                email: route?.params?.email,
+                username: route?.params?.username,
                 index: route?.params?.index
             })
             setTextInput("");
@@ -47,7 +47,7 @@ export default function Screen03({navigation, route}) {
                                     resizeMode='contain'
                                 />
                                 <View>
-                                    <Text style={{textAlign: "center", fontWeight: "700", }}>Hi {route.params?.email}</Text>
+                                    <Text style={{textAlign: "center", fontWeight: "700", }}>Hi {route.params?.username}</Text>
                                     <Text style={{marginLeft: 4, fontWeight: "500", color: "#666"}}>Have a greate day a head</Text>
                                 </View>
 
