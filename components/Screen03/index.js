@@ -5,6 +5,9 @@ import { SafeAreaView } from 'react-native'
 export default function Screen03({navigation, route}) {
     const [textInput, setTextInput] = useState("");
     const handleClickFinish = ()=>{
+        if (textInput == ""){
+            return;
+        }
         if (route.params?.action == "add"){
             
             navigation.navigate("Screen02", {
@@ -50,7 +53,7 @@ export default function Screen03({navigation, route}) {
 
                             </View>
                             <Pressable
-                                onPress={()=> navigation.navigate("Screen01")}
+                                onPress={()=> navigation.goBack()}
                             >
                                 <Image
                                     source={require("../../assets/back.jpg")}

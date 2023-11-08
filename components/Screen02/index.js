@@ -45,6 +45,8 @@ export default function Screen02({navigation, route}) {
             setTodoList(newArr);
         }
    }, [route?.params?.todo])
+
+   console.log(route.params)
   return (
     <View style={{flex: 1}}>
         <StatusBar/>
@@ -55,7 +57,7 @@ export default function Screen02({navigation, route}) {
                 <View>
                     <View style={{flexDirection: "row", justifyContent: "space-between", paddingVertical: 15}}>
                         <Pressable
-                            onPress={()=> navigation.navigate("Screen01")}
+                            onPress={()=> navigation.goBack()}
                         >
                             <Image
                                 source={require("../../assets/back.jpg")}
