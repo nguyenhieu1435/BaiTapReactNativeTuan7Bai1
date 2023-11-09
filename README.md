@@ -24,22 +24,27 @@
 
 <h1>Thêm một todo task</h1>
 
-![image](https://github.com/nguyenhieu1435/BaiTapReactNativeTuan7Bai1/assets/70377398/d4e596e4-4e6c-47a0-8f51-176904718cc5)
+![image](https://github.com/nguyenhieu1435/BaiTapReactNativeTuan7Bai1/assets/70377398/a823cedb-a1da-4ca2-b94b-593e5ff05726)
 
-![image](https://github.com/nguyenhieu1435/BaiTapReactNativeTuan7Bai1/assets/70377398/1826b2d5-452c-47d4-939a-961e3dc7413c)
+![image](https://github.com/nguyenhieu1435/BaiTapReactNativeTuan7Bai1/assets/70377398/237329f9-cda2-4b98-869c-33f18fc427f1)
 
-![image](https://github.com/nguyenhieu1435/BaiTapReactNativeTuan7Bai1/assets/70377398/01b7f3cd-0521-4666-8125-bfc318879083)
+![image](https://github.com/nguyenhieu1435/BaiTapReactNativeTuan7Bai1/assets/70377398/38b4a9ae-d310-425d-8e12-c88bd59e803b)
 
-<h3>Lưu ý, todo list chỉ hiển thị các task của username đang đăng nhập</h3>
+<h3>Chỉ hiển thị những task của user đang đăng nhập</h3>
 
-<h1>Sửa một todo task</h1>
+![image](https://github.com/nguyenhieu1435/BaiTapReactNativeTuan7Bai1/assets/70377398/f0f8dcc0-4098-4fd2-8d74-a93c367a1227)
 
-![image](https://github.com/nguyenhieu1435/BaiTapReactNativeTuan7Bai1/assets/70377398/b94f9790-e784-41f8-879c-06b1c38d5bb4)
+<h1>Sửa 1 task</h1>
 
-![image](https://github.com/nguyenhieu1435/BaiTapReactNativeTuan7Bai1/assets/70377398/55740233-ccbb-4bcb-9c5c-764e164fe783)
+![image](https://github.com/nguyenhieu1435/BaiTapReactNativeTuan7Bai1/assets/70377398/dcb69c8b-7e74-45c8-ada6-068e0c15a279)
 
-![image](https://github.com/nguyenhieu1435/BaiTapReactNativeTuan7Bai1/assets/70377398/780d2e7b-eb63-4223-b46a-a01adf0af5e0)
+![image](https://github.com/nguyenhieu1435/BaiTapReactNativeTuan7Bai1/assets/70377398/af7f5644-6b63-4c68-9d33-52561849265f)
 
+![image](https://github.com/nguyenhieu1435/BaiTapReactNativeTuan7Bai1/assets/70377398/c5f206ca-4710-42ab-a40e-1dd4c03c4865)
+
+<h1>Xóa 1 task</h1>
+
+![image](https://github.com/nguyenhieu1435/BaiTapReactNativeTuan7Bai1/assets/70377398/9d9e1432-7e14-4c6b-950d-09ed9b12e696)
 
 
 
