@@ -83,7 +83,7 @@ export default function Screen01({navigation}) {
                             :
                             <>
                              <Text style={{color: "#fff", fontSize: 18, marginRight: 6, backgroundColor: "#00BDD5", marginTop: 25
-                        , paddingVertical: 10, paddingHorizontal: 30,  borderRadius: 12}}>Sign In</Text>
+                        , paddingVertical: 10, paddingHorizontal: 30,  borderRadius: 12, fontWeight:"700"}}>Sign In</Text>
                             <Ionicons name="arrow-forward" size={24} color="white" />
                             </>
                         }
