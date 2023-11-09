@@ -18,7 +18,7 @@
 
 <h1>Đăng nhập vào tài khoản</h1
 
-<h3>URL Các tài khoản</h3>                        
+<h3>URL Các tài khoản: https://n38s2n-3000.csb.app/account_tuan7</h3>                        
 
 ![image](https://github.com/nguyenhieu1435/BaiTapReactNativeTuan7Bai1/assets/70377398/45396cac-7eab-49b8-91e5-ee6f9ffe319e)
 
