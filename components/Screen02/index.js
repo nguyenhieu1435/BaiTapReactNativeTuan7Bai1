@@ -10,7 +10,9 @@ export default function Screen02({navigation, route}) {
     useEffect(()=>{
         const getData = async ()=>{
             const res = await fetch("https://n38s2n-3000.csb.app/todo_list_tuan7?username="+route?.params?.username);
-            const dataArr = await res.json();
+            let dataArr = await res.json();
+            dataArr = dataArr.sort((a,b)=>a.date.localeCompare(b.date));
+            console.log(dataArr);
             setData(dataArr);
         }
         getData();

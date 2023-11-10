@@ -2,8 +2,8 @@ import { View, Text, StatusBar, ScrollView, Pressable, Image, TextInput } from '
 import React, { useEffect, useState } from 'react'
 import { SafeAreaView } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
-import DateTimePicker from '@react-native-community/datetimepicker';
 import { ActivityIndicator } from 'react-native';
+import { DatePickerModal } from 'react-native-paper-dates';
 
 const priorities = [
     {
@@ -90,6 +90,18 @@ export default function Screen03({navigation, route}) {
         }
     }
 
+    const onDismissSingle = React.useCallback(() => {
+        setShowPicker(false);
+      }, [showPicker]);
+    
+      const onConfirmSingle = React.useCallback(
+        (params) => {
+            setShowPicker(false);
+            setDate(params.date);
+        },
+        [showPicker, setDate]
+      );
+
     return (
         <View style={{flex: 1}}>
             <StatusBar/>
@@ -151,12 +163,14 @@ export default function Screen03({navigation, route}) {
                     {
                             showPicker 
                             &&
-                            <DateTimePicker
-                                mode='date'
-                                display='spinner'
-                                value={date}
-                                onChange={(event, selectedDate)=>{setDate(selectedDate); setShowPicker(false)}}
-                            />
+                            <DatePickerModal
+                                locale="en"
+                                mode="single"
+                                visible={true}
+                                onDismiss={onDismissSingle}
+                                date={date}
+                                onConfirm={onConfirmSingle}
+                                />
                     }
 
                 
